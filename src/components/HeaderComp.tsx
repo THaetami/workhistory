@@ -28,7 +28,7 @@ export default function HeaderComp({ buttonToggle, deleteAllWork, countWorkList 
             </button>
           </div>
           <div className="setting-button ">
-            <button onClick={showDropdown > 0 ? () => setIsOpen(!isOpen) : undefined} className="button-custom dropdown-header">
+            <button aria-label="menu" onClick={showDropdown > 0 ? () => setIsOpen(!isOpen) : undefined} className="button-custom dropdown-header">
               <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer" width="20" height="20" viewBox="0 0 20 20">
                 <path fill="currentColor" d="M10.001 7.8a2.2 2.2 0 1 0 0 4.402A2.2 2.2 0 0 0 10 7.8zm0-2.6A2.2 2.2 0 1 0 9.999.8a2.2 2.2 0 0 0 .002 4.4zm0 9.6a2.2 2.2 0 1 0 0 4.402a2.2 2.2 0 0 0 0-4.402z" />
               </svg>
