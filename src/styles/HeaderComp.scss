@@ -1,0 +1,91 @@
+.header {
+    display: flex;
+    align-items: center;
+    --tw-bg-opacity: 1;
+    background-color: black;
+    color: white;
+    border-top-left-radius: .375rem;
+    border-top-right-radius: .375rem;
+
+    .header-title {
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        flex-grow: 1;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .wrap-setting {
+        align-items: center;
+        display: flex;
+
+        .setting-button {
+            padding: .5rem;
+            border: 2px solid transparent;
+            border-left: 2px solid white;
+
+            .button-custom {
+                --tw-text-opacity: 1;
+                color: rgba(0, 134, 255, var(--tw-text-opacity));
+                padding-left: .5rem;
+                padding-right: .5rem;
+                border-radius: .25rem;
+                height: 1.5rem;
+                align-items: center;
+                display: flex;
+                cursor: pointer;
+            }
+
+            button {
+                background-color: transparent;
+                background-image: none;
+                outline: none;
+                border: none;
+            }
+
+            button:hover {
+                background-color: rgb(190, 220, 255);
+            }
+        }
+    }
+}
+
+.dropdown-container {
+    position: absolute;
+    width: 120px;
+    margin-top: 50px;
+}
+
+.dropdown-header {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.dropdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(242, 14, 14);
+    border-radius: 0.25rem;
+    color: white;
+}
+
+.dropdown-list-item {
+    // position: absolute;
+    right: 0;
+    // margin-right: -20px;
+    text-align: center;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.dropdown-list-item:hover {
+    background-color: rgb(239, 32, 32);
+    color: black;
+}

@@ -1,0 +1,126 @@
+.content {
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-top: 2px solid rgba(229, 231, 235);
+
+    .content-wrap {
+        --tw-text-opacity: 1;
+        color: black;
+        position: relative;
+
+        .content-title {
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            width: 100%;
+        }
+
+        .wrap-body {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            .content-body {
+                flex-grow: 1;
+
+                .body-title {
+                    padding-top: 0.3rem;
+                    padding-bottom: 0.3rem;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    width: 100%;
+                }
+            }
+
+            .wrap-setting {
+                display: flex;
+                right: 0;
+                top: 0;
+                position: absolute;
+
+                .setting-button {
+                    border: 2px solid transparent;
+                    border-left: 2px solid white;
+
+                    .button-custom {
+                        --tw-text-opacity: 1;
+                        color: rgba(0, 134, 255, var(--tw-text-opacity));
+                        padding-left: .2rem;
+                        padding-right: .2rem;
+                        border-radius: .25rem;
+                        height: 1.5rem;
+                        align-items: center;
+                        display: flex;
+                        cursor: pointer;
+                    }
+
+                    button {
+                        background-color: transparent;
+                        background-image: none;
+                        outline: none;
+                        border: none;
+                        color: black;
+                    }
+
+                    button:hover {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 500px) {
+    .content {
+        .wrap-body {
+            .wrap-setting {
+                gap: 0.7rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .content {
+        .content-wrap {
+            display: flex;
+
+            .content-title {
+                width: 25%;
+            }
+
+            .wrap-body {
+                width: 75%;
+            }
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .wrap-textarea {
+        margin: 20px 0 10px 0;
+    }
+
+    .work-form {
+        .wrap-form {
+            .title-label {
+                width: 8rem;
+            }
+
+            .wrap-duration {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+
+                .wrap-input {
+                    .title-label-to {
+                        width: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

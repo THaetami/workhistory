@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+body {
+    background-color: white;
+    color: black;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.landing-2 {
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.stars {
+    color: red;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.input-custom {
+    flex-grow: 1;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    padding: 10px;
+    font-size: 17px;
+    font-family: "Gabarito", sans-serif;
+}
+
+.kontener {
+    width: 100%;
+    font-family: "Gabarito", sans-serif;
+    padding: 5px 0 0 0;
+    margin: 0 auto;
+    
+    .history-app {
+        background-color: white;
+        border-bottom-left-radius: .375rem;
+        border-bottom-right-radius: .375rem;
+        justify-content: center;
+        align-items: center;
+        
+    }
+}
+
+.wrap-no-experience {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    .no-experience {
+        background-image: url('/utils/no-experience.png');
+        background-size: cover;
+        margin: 35px 0 20px 0;
+        width: 250px;
+        height: 250px;
+        border-radius: 100%;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+}
+
+
+@media (min-width: 500px) {
+    .kontener {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 642px) {
+    .kontener {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .kontener {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 900px) {
+    .kontener {
+        max-width: 800px;
+        padding: 30px 0 0 0;
+
+        .history-app {
+            padding-bottom: 25px;
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+            
+        }
+    }
+}
