@@ -25,11 +25,16 @@ interface Errors {
   ended: string;
 }
 
+
 const monthsArray = Array.from({ length: 12 }, (_, index) => {
   const monthIndex = index + 1;
-  const monthName = new Date(0, index).toLocaleString('default', { month: 'short' });
+  const date = new Date(Date.UTC(2000, index, 1));
+  const monthName = date.toLocaleString('default', { month: 'short', timeZone: 'UTC' });
   return { monthIndex, monthName };
 });
+
+console.log(monthsArray);
+
 
 export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkById, updateWorkById }: WorkFromProps) {
   const currentYear = new Date().getFullYear();
