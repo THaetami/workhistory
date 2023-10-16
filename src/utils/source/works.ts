@@ -13,19 +13,19 @@ const getData = (): WorkData[] => {
   return [
     {
         id: 1571875200000,
-        title: 'Operator Produksi',
-        company: 'PT Roda Prima Lancar',
+        title: 'Director',
+        company: 'PT Indah Madani Hihihi',
         started: 'Aug 2019',
-        ended: 'Oct 2019',
-        description: 'Menyiapkan Material, Mengoperasikan Mesin, Menjaga Kualitas Produksi, Bekerja Sesuai Target, dan Memastikan kebersihan Lingkungan Kerja',
+        ended: '',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae culpa labore eaque quo pariatur est sint, minima consequuntur consectetur laborum mollitia ad rerum necessitatibus quia deleniti optio asperiores perspiciatis aspernatur.',
     },
     {
         id: 1595664000000,
-        title: 'Staff',
-        company: 'NOTARIS DAN PPAT BURHANUDIN, S.H., M.Kn.',
+        title: 'Founder',
+        company: 'PT Mencari Cinta Sejati',
         started: 'Sep 2017',
         ended: 'Nov 2018',
-        description: `<div>- Menyiapkan segala keperluan akad kredit yang berurusan baik dengan bank, developer maupun dengan lembaga keuangan bukan bank (mulai dari membuat akta-akta notaril, sampai dengan memasang hak tanggungan terhadap jaminan berupa tanah di kantor badan pertanahan nasional). </div><div>- Mengurus perijian berusaha suatu badan usaha, baik PT, CV, maupun PO. </div><div>- Mendaftarkan PT, YAYASAN, PERKUMPULAN, dan KOPERASI agar mendapatkan pengesahan dari KEMENKUMHAM maupun Kementrian Koperasi.</div>`
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae culpa labore eaque quo pariatur est sint, minima consequuntur consectetur .`
     },
   ];
 };

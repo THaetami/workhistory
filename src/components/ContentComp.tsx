@@ -42,9 +42,8 @@ export default function ContentComp({ work, deleteWork, getWork, buttonToggle }:
                             </div>
                         </div>
                         <div className="content-body">
-                                <div className="body-title">{title } at { company }</div>
+                            <div className="body-title">{title } at { company }</div>
                             <div className="landing-2" dangerouslySetInnerHTML={{ __html: description || '' }} />
-
                         </div>
                     </div>
                 </div>

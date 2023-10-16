@@ -12,9 +12,6 @@ export default function WorkHistoryApp() {
   useEffect(() => {
     const data = getData();
     setWorkList(data);
-
-    // getWorkById(data[0].id);
-    // console.log(workById);
   }, []);
 
 
@@ -75,7 +72,6 @@ export default function WorkHistoryApp() {
             updateWorkById={updateWorkById}
             setWorkById={setWorkById}
           />
-
         }
       </div>
     </div>

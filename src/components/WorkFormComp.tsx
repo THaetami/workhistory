@@ -9,9 +9,7 @@ import {
 } from '../utils/helper';
 
 interface WorkFromProps {
-  // eslint-disable-next-line no-unused-vars
   addWork: (newWork: WorkData) => void;
-  // eslint-disable-next-line no-unused-vars
   updateWorkById: (id: number, updatedWork: WorkData) => void;
   buttonToggle: () => void;
   workById: WorkData | undefined;
@@ -25,16 +23,12 @@ interface Errors {
   ended: string;
 }
 
-
 const monthsArray = Array.from({ length: 12 }, (_, index) => {
   const monthIndex = index + 1;
   const date = new Date(Date.UTC(2000, index, 1));
   const monthName = date.toLocaleString('default', { month: 'short', timeZone: 'UTC' });
   return { monthIndex, monthName };
 });
-
-console.log(monthsArray);
-
 
 export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkById, updateWorkById }: WorkFromProps) {
   const currentYear = new Date().getFullYear();
@@ -54,7 +48,7 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
     title: workById ? workById.title : '',
     company: workById ? workById.company : '',
     started: workById ? workById.started : '',
-    ended: workById && workById.ended ? workById.ended : '', // Check if workById and workById.ended are not null
+    ended: workById && workById.ended ? workById.ended : '',
     description: workById ? workById.description : '',
   });
   
@@ -79,54 +73,25 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
     setWorkById(undefined);
   }
 
-
-
   useEffect(() => {
     const data = getJobFunction();
     setJobFunction(data);
-    // const endedLength = form.ended ? form.ended.trim().length : '';
-    // console.log(endedLength);
 
-    // const { title, company, started } = form;
     const { title, company, started, ended } = form;
     console.log(ended?.length)
 
     // Periksa semua validasi di sini
-    // if (title.trim() === '' || company.trim() === '' || started.trim().length !== 8 || showCurrentFlag && ended.trim().length !== 8 || ended.trim().length > 0  && ended.trim().length !== 8) {
-    //   setIsFormValid(false);
-    // } else {
-    //   setIsFormValid(true);
-    // }
-    // if (title.trim() === '' || company.trim() === '' || started.trim().length !== 8 || showCurrentFlag && ended?.trim().length !== 8 || ended?.trim().length > 0  && ended?.trim().length !== 8) {
-    //   setIsFormValid(false);
-    // } else {
-    //   setIsFormValid(true);
-    // }
     if (
       title.trim() === '' ||
       company.trim() === '' ||
       started.trim().length !== 8 ||
       (showCurrentFlag && ended?.trim().length !== 8) ||
-      (ended && (ended.trim().length ?? 0) > 0 && (ended.trim().length ?? 0) !== 8) // Ensure types are explicitly converted to numbers
+      (ended && (ended.trim().length ?? 0) > 0 && (ended.trim().length ?? 0) !== 8)
     ) {
       setIsFormValid(false);
     } else {
       setIsFormValid(true);
     }
-
-    
-
-  // if (
-  //   title.trim() === '' ||
-  //   company.trim() === '' ||
-  //   started.trim().length !== 8 ||
-  //   (showCurrentFlag && ended && ended.trim().length !== 8) || // Check if ended is not null before trimming
-  //   (ended && ended.trim().length > 0 && ended && ended.trim().length !== 8) // Check if ended is not null before trimming
-  // ) {
-  //   setIsFormValid(false);
-  // } else {
-  //   setIsFormValid(true);
-  // }
   }, [errors, form, showCurrentFlag]);
 
 
@@ -151,7 +116,6 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
     onDescriptionChangeHandler(event, form, setForm)
   };
 
-
   const handleStartedMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onStartedMonthChangeHandler(event, form, setForm)
   };
@@ -160,30 +124,9 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
     onStartedYearChangeHandler(event, form, setForm)
   };
 
-  // const handleEndedMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const value = event.target.value;
-  //   const yearValue = form.ended.split(' ')[1];
-  //   const updatedDate = `${value} ${yearValue}`;
-
-  //    setForm({
-  //     ...form,
-  //     ended: updatedDate,
-  //   });
-  // };
-
-  // const handleEndedYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const value = event.target.value;
-  //   const monthValue = form.ended.split(' ')[0];
-  //   const updatedDate = `${monthValue} ${value}`;
-  //   setForm({
-  //     ...form,
-  //     ended: updatedDate,
-  //   });
-  // };
-
   const handleEndedMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
-    const yearValue = form.ended ? form.ended.split(' ')[1] : ''; // Get year from form.ended if it exists
+    const yearValue = form.ended ? form.ended.split(' ')[1] : ''; // ambil year dari form.ended jika ada
     const updatedDate = `${value} ${yearValue}`;
 
     setForm({
@@ -194,7 +137,7 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
 
   const handleEndedYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
-    const monthValue = form.ended ? form.ended.split(' ')[0] : ''; // Get month from form.ended if it exists
+    const monthValue = form.ended ? form.ended.split(' ')[0] : ''; // ambil month dari form.ended jika ada
     const updatedDate = `${monthValue} ${value}`;
     setForm({
       ...form,
@@ -202,124 +145,50 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
     });
   };
 
-  // const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-
-  //   if (isFormValid) {
-  //     const { started, ended } = form;
-  //     const dateStarted = new Date(started);
-  //     const dateEnded = new Date(ended);
-  //     console.log(dateEnded < dateStarted);
-    
-  //     if (dateEnded < dateStarted) {
-  //         setErrors((prevErrors) => ({
-  //           ...prevErrors,
-  //           ended: 'Waktu salah'
-  //         }));
-  //     } else {
-  //       if (!showCurrentFlag) {
-  //         addWork({
-  //           ...form,
-  //           ended: '',
-  //           id: Date.now(),
-  //         });
-  //         buttonToggle();
-  //       } else {
-  //         addWork({
-  //           ...form,
-  //           id: Date.now(),
-  //         });
-  //         buttonToggle();
-  //       }
-  //     }
-  //   }
-    
-  // };
-
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  if (isFormValid) {
-    const { started, ended } = form;
-    const dateStarted = new Date(started);
-    const dateEnded = ended ? new Date(ended) : null; // Perform a null check on 'ended'
+    if (isFormValid) {
+      const { started, ended } = form;
+      const dateStarted = new Date(started);
+      const dateEnded = ended ? new Date(ended) : null; 
 
-    if (dateEnded && dateEnded < dateStarted) { // Perform a null check on 'dateEnded'
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        ended: 'Waktu salah'
-      }));
-    } else {
-      if (!showCurrentFlag) {
-        if (workById) {
-          updateWorkById(workById.id, {
-            ...form,
-            ended: ''
-          });
-        } else {
-          addWork({
-            ...form,
-            ended: '',
-            id: Date.now(),
-          });
-        }
-        setWorkById(undefined);
-        buttonToggle();
+      if (dateEnded && dateEnded < dateStarted) { 
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          ended: 'Waktu salah'
+        }));
       } else {
-        if (workById) {
-          updateWorkById(workById.id, form);
+        if (!showCurrentFlag) {
+          if (workById) {
+            updateWorkById(workById.id, {
+              ...form,
+              ended: ''
+            });
+          } else {
+            addWork({
+              ...form,
+              ended: '',
+              id: Date.now(),
+            });
+          }
+          setWorkById(undefined);
+          buttonToggle();
         } else {
-          addWork({
-            ...form,
-            id: Date.now(),
-          });
+          if (workById) {
+            updateWorkById(workById.id, form);
+          } else {
+            addWork({
+              ...form,
+              id: Date.now(),
+            });
+          }
+          buttonToggle();
+          setWorkById(undefined);
         }
-        buttonToggle();
-                setWorkById(undefined);
-
       }
     }
-  }
-};
-
-
-  // const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-
-  //   if (isFormValid) {
-  //     const { started, ended } = form;
-  //     const dateStarted = new Date(started);
-
-  //     if (ended) { // Check if ended is not null
-  //       const dateEnded = new Date(ended);
-  //       console.log(dateEnded < dateStarted);
-
-  //       if (dateEnded < dateStarted) {
-  //         setErrors((prevErrors) => ({
-  //           ...prevErrors,
-  //           ended: 'Waktu salah'
-  //         }));
-  //       } else {
-  //         if (!showCurrentFlag) {
-  //           addWork({
-  //             ...form,
-  //             ended: '',
-  //             id: Date.now(),
-  //           });
-  //           buttonToggle();
-  //         } else {
-  //           addWork({
-  //             ...form,
-  //             id: Date.now(),
-  //           });
-  //           buttonToggle();
-  //         }
-  //       }
-  //     }
-  //   }
-  // };
-
-
+  };
 
   return (
       <>
@@ -470,12 +339,6 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
           {/* descriptioin */}
           <div className="wrap-textarea">
             <div className="label-textarea">Accomplishments or descriptions (optional)</div>
-            {/* <textarea
-              onChange={handleDescriptionChange}
-              value={form.description}
-              rows={5}
-              className="textarea-custom"
-            ></textarea> */}
             <textarea
               onChange={handleDescriptionChange}
               value={form.description || ''}

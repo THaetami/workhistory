@@ -1,12 +1,4 @@
 import { WorkData } from "./source/works";
-// export interface WorkData {
-//     id: number;
-//     title: string;
-//     company: string;
-//     started: string;
-//     ended: string | null; 
-//     description: string;
-// }
 
 export interface ErroData {
     title: string;
