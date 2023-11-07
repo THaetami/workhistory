@@ -97,5 +97,34 @@ export const onStartedYearChangeHandler = (
     });
 };
 
+export const onEndedMonthChangeHandler = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+    form: WorkData,
+    setForm: React.Dispatch<React.SetStateAction<WorkData>>,
+) => {
+    const value = event.target.value;
+    const yearValue = form.ended ? form.ended.split(' ')[1] : ''; // ambil year dari form.ended jika ada
+    const updatedDate = `${value} ${yearValue}`;
+
+    setForm({
+      ...form,
+      ended: updatedDate,
+    });
+};
+
+export const onEndedYearChangeHandler = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+    form: WorkData,
+    setForm: React.Dispatch<React.SetStateAction<WorkData>>,
+) => {
+    const value = event.target.value;
+    const monthValue = form.ended ? form.ended.split(' ')[0] : ''; // ambil month dari form.ended jika ada
+    const updatedDate = `${monthValue} ${value}`;
+    setForm({
+      ...form,
+      ended: updatedDate,
+    });
+};
+
 
 

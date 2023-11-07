@@ -5,7 +5,7 @@ import { WorkData } from '../utils/source/works';
 import { Dispatch, SetStateAction } from 'react';
 
 import {
-  onTitleChangeHandler, onCompanyChangeHandler, onDescriptionChangeHandler, onStartedMonthChangeHandler, onStartedYearChangeHandler, 
+  onTitleChangeHandler, onCompanyChangeHandler, onDescriptionChangeHandler, onStartedMonthChangeHandler, onStartedYearChangeHandler, onEndedMonthChangeHandler, onEndedYearChangeHandler
 } from '../utils/helper';
 
 interface WorkFromProps {
@@ -78,7 +78,6 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
     setJobFunction(data);
 
     const { title, company, started, ended } = form;
-    console.log(ended?.length)
 
     // Periksa semua validasi di sini
     if (
@@ -125,24 +124,11 @@ export default function WorkFormComp({ buttonToggle, addWork, workById, setWorkB
   };
 
   const handleEndedMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    const yearValue = form.ended ? form.ended.split(' ')[1] : ''; // ambil year dari form.ended jika ada
-    const updatedDate = `${value} ${yearValue}`;
-
-    setForm({
-      ...form,
-      ended: updatedDate,
-    });
+    onEndedMonthChangeHandler(event, form, setForm)
   };
 
   const handleEndedYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    const monthValue = form.ended ? form.ended.split(' ')[0] : ''; // ambil month dari form.ended jika ada
-    const updatedDate = `${monthValue} ${value}`;
-    setForm({
-      ...form,
-      ended: updatedDate,
-    });
+    onEndedYearChangeHandler(event, form, setForm)
   };
 
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
