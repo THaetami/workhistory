@@ -39,7 +39,7 @@ export default function HeaderComp({ buttonToggle, deleteAllWork, countWorkList 
                 <ul className="dropdown-list">
                   <li className="dropdown-list-item">
                   <small onClick={() => setOpenModal(true)} >
-                        No Experience
+                    No Experience
                   </small>
                   </li>
                 </ul>

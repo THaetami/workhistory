@@ -1,15 +1,14 @@
-import ContentComp from "./ContentComp"
-import HeaderComp from "./HeaderComp"
-import { WorkData } from "../utils/source/works"
+import ContentComp from "./ContentComp";
+import HeaderComp from "./HeaderComp";
+import { WorkData } from "../utils/source/works";
+import '../styles/WorkListComp.scss';
 
 interface WorkListCompProps {
+  deleteWork: (id: number) => void;
+  getWorkById: (id: number) => void;
   buttonToggle: () => void;
   works: WorkData[];
-  // eslint-disable-next-line no-unused-vars
-  deleteWork: (id: number) => void;
   deleteAllWork: () => void;
-  // eslint-disable-next-line no-unused-vars
-  getWorkById: (id: number) => void;
 }
 
 export default function WorkListComp({ buttonToggle, works, deleteWork, deleteAllWork, getWorkById }: WorkListCompProps) {
@@ -27,8 +26,8 @@ export default function WorkListComp({ buttonToggle, works, deleteWork, deleteAl
               .sort((a, b) => new Date(b.started).getTime() - new Date(a.started).getTime())
               .map((work) => (
                 <ContentComp
-                    work={work} key={work.id}
-                    deleteWork={() => deleteWork(work.id)}
+                  work={work} key={work.id}
+                  deleteWork={() => deleteWork(work.id)}
                   getWork={() => getWorkById(work.id)}
                   buttonToggle={buttonToggle}
                 />

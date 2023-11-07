@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, MouseEventHandler } from 'react';
 import '../styles/ContentComp.scss';
 import { WorkData } from '../utils/source/works';
 import ModalComp from './ModalComp';
@@ -11,8 +11,16 @@ interface ContentCompProps {
 }
 
 export default function ContentComp({ work, deleteWork, getWork, buttonToggle }: ContentCompProps) {
-    const { title, company, started, ended, description } = work;
+    const { title, company, started, ended, description, location } = work;
     const [openModal, setOpenModal] = useState(false);
+    const [currentLocation, setCurrentLocation] = useState('');
+
+    const handleLocationClick: MouseEventHandler<HTMLParagraphElement> = () => {
+        if (location) {
+            setCurrentLocation(location);
+            setOpenModal(true);
+        }
+    };
 
     const handleUpdateWorkById = () => {
         buttonToggle();
@@ -42,9 +50,11 @@ export default function ContentComp({ work, deleteWork, getWork, buttonToggle }:
                             </div>
                         </div>
                         <div className="content-body">
-                                <div className="body-title">{title } at { company }</div>
+                            <div className="body-title">{title} at {company}</div>
+                            { location &&
+                                <p onClick={handleLocationClick} className='body-location'>See the location</p>
+                            }
                             <div className="landing-2" dangerouslySetInnerHTML={{ __html: description || '' }} />
-
                         </div>
                     </div>
                 </div>
@@ -53,6 +63,8 @@ export default function ContentComp({ work, deleteWork, getWork, buttonToggle }:
                 openModal={openModal}
                 closeModal={setOpenModal}
                 deleteWork={deleteWork}
+                location={currentLocation}
+                setLocation={setCurrentLocation}
             />
         </>
     )
