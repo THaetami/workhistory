@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import WorkListComp from "./WorkListComp";
-import WorkFormComp from "./WorkFormComp";
+import WorkListComp from "../components/WorkListComp";
+import WorkFormComp from "../components/WorkFormComp";
 import { getData, WorkData } from "../utils/source/works";
 
 export default function WorkHistoryApp() {
