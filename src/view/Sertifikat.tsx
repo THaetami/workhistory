@@ -15,7 +15,7 @@ const Sertifikat = () => {
                 window.location.href = 'https://www.dicoding.com/certificates/0LZ09OKG3Z65';
               break;
             case '3':
-                window.location.href = 'https://www.credly.com/badges/585ed270-d06d-4da4-b740-7f4f7444251b/linked_in_profile';
+                window.location.href = 'https://drive.google.com/drive/folders/1Tmjr9wI043o8e_0uW6jrITpVRDhk08WN';
                 break;
             default:
                 window.location.href = '/';
